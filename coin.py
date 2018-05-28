@@ -70,13 +70,19 @@ def send(coin,pubkey_next_owner,current_owner_privkey):
 alice_pub = create_pubkey("Alice")
 alice_coin = mint_coin(alice_pub)
 
-bob_pub = create_pubkey("Bob")
+
 
 print (f"created coin For alice {alice_coin}")
 print (f"Coin is valid {validate_coin(alice_coin)}")
 
+bob_pub = create_pubkey("Bob")
 bob_coin = send(alice_coin,bob_pub,"Alice")
 
-print (f"Alice sent coin to bob: {bob_coin}")
+print (f"Alice sent coin to Bob: {bob_coin}")
 print (f"Coin is valid {validate_coin(bob_coin)}")
 
+eve_pub = create_pubkey("Eve")
+eve_coin = send(alice_coin,eve_pub,"Alice")
+
+print (f"Alice sent coin to Eve: {eve_coin}")
+print (f"Coin is valid {validate_coin(eve_coin)}")
